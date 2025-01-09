@@ -1,0 +1,39 @@
+<!-- book.component.html -->
+<div class="container mt-4">
+    <h2 class="text-center">Add New Book</h2>
+
+    <form>
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" [(ngModel)]="book.title" name="title"
+                placeholder="Enter book title">
+        </div>
+
+        <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <input type="text" class="form-control" id="author" [(ngModel)]="book.author" name="author"
+                placeholder="Enter author name">
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="addNew()">Add New</button>
+    </form>
+</div>
+
+<div class="container mt-4">
+    <h2>Danh sách Sách</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of bookList; let i=index">
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td><button type="submit" class="btn btn-primary" (click)="remove(book.id)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
